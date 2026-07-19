@@ -14,10 +14,26 @@
 └── eslint_sonarjs.json       (platform output)
 ```
 
-## Trigger
+## ESLint raw output (White-box validation)
+
+Enterprise TypeScript modules (`controllers/`, `services/`, `models/`, etc.) contain intentional ESLint violations for raw JSON extraction.
 
 ```bash
 npm install
+npm run lint:json
+```
+
+Generates `eslint_raw_output.json` (unmodified ESLint JSON formatter output).
+
+Regenerate enterprise modules:
+
+```bash
+npm run generate:enterprise
+```
+
+## Path Coverage trigger (eslint-plugin-sonarjs)
+
+```bash
 npm run trigger
 npm run verify
 ```

@@ -7,8 +7,11 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
-    "lint": "eslint sample_subject/src --max-warnings 0",
-    "lint:json": "eslint sample_subject/src -f json -o artifacts/training/eslint-report.json",
+    "lint": "eslint . --ext .ts",
+    "lint:json": "eslint . --ext .ts -f json -o eslint_raw_output.json || node -e \"require('fs').accessSync('eslint_raw_output.json');process.exit(0)\"",
+    "lint:sonarjs": "eslint sample_subject/src --max-warnings 0",
+    "lint:sonarjs:json": "eslint sample_subject/src -f json -o artifacts/training/eslint-report.json",
+    "generate:enterprise": "node scripts/generateEnterpriseCode.mjs",
     "coverage": "vitest run --coverage",
     "trigger": "tsx src/eslintSonarjsTrigger.ts",
     "verify": "tsx src/verify/verifyCli.ts --json eslint_sonarjs.json"
