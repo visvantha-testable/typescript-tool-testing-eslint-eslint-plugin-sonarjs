@@ -1,0 +1,54 @@
+{
+  "name": "npmvulncheck",
+  "version": "0.1.4",
+  "description": "govulncheck-inspired vulnerability scanner for npm projects",
+  "keywords": [
+    "npm",
+    "security",
+    "vulnerability",
+    "scanner",
+    "osv",
+    "supply-chain",
+    "cli",
+    "typescript"
+  ],
+  "homepage": "https://github.com/shodohq/npmvulncheck#readme",
+  "bugs": {
+    "url": "https://github.com/shodohq/npmvulncheck/issues",
+    "email": "kousuke.takaki@shodohq.com"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "Kousuke Takaki <kousuke.takaki@shodohq.com>",
+  "bin": {
+    "npmvulncheck": "dist/cli/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shodohq/npmvulncheck.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli/main.ts",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@npmcli/arborist": "^7.5.4",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "commander": "^13.1.0",
+    "typescript": "^5.7.3",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "overrides": {
+    "minimatch": "10.2.1",
+    "tar": "7.5.8"
+  }
+}
