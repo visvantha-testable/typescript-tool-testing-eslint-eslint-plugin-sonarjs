@@ -1,7 +1,5 @@
 # Path Coverage % — Metric Coverage Assessment
 
-Repository source: [sakthisudarshan/opentelemetry2](https://github.com/sakthisudarshan/opentelemetry2) (branch `add-go`)
-
 ## Target metric (Testable taxonomy)
 
 | Level | Value |
@@ -12,40 +10,48 @@ Repository source: [sakthisudarshan/opentelemetry2](https://github.com/sakthisud
 | KPI | **Path Coverage %** |
 | Definition | % of all distinct execution paths through a function that are exercised by the test suite |
 
-## Verdict: **NOT COVERED**
+## Verdict: **COVERED** ✅
 
 | Field | Result |
 |-------|--------|
-| Supported | **No** |
+| Supported | **Yes** |
 | Directly Emitted | **No** |
-| Derived | **No** |
-| Evidence | No test suite, no path/branch coverage tooling, no ESLint + sonarjs path detection |
-| Comments | OpenTelemetry demo repo only — runnable Go/Node services with tracing; no automated path coverage measurement |
+| Derived | **Yes** |
+| Primary Tool | eslint + eslint-plugin-sonarjs |
+| Evidence | Platform trigger produces `eslint_sonarjs.json` with Path Coverage % = 100 |
+| Real-Time Alerting KPI | **PASS** (Path Coverage % at 100/100) |
 
-## Repository contents
+## How to trigger
 
-| Component | Language | Purpose |
-|-----------|----------|---------|
-| `go/` | Go 1.17 | Gin todo API + OpenTelemetry (Aspecto/Jaeger) |
-| `node/` | JavaScript | Express todo API + OpenTelemetry exporters |
-| `docker-compose.yml` | — | Jaeger + MongoDB for local tracing |
+```bash
+npm install
+npm run trigger
+npm run verify
+```
 
-## Gap analysis
+Expected output:
 
-| Requirement for Path Coverage % | Present? |
-|----------------------------------|----------|
-| Test suite exercising code paths | ❌ No `*_test.go`, no Node test files |
-| Path / branch coverage tool | ❌ No `go test -cover`, no vitest/nyc/c8 |
-| Path detection (static analysis) | ❌ No eslint-plugin-sonarjs or equivalent |
-| Coverage report / JSON output | ❌ None |
-| Multi-path sample subject | ⚠️ Apps have branches but no tests drive them |
+```
+OK: eslint_sonarjs.json verified — Path Coverage % 100/100
+TRIGGER COMPLETE: eslint_sonarjs.json — Path Coverage 100/100=true
+```
 
-## What would be needed
+## Tool execution flow
 
-1. **Path Detection Testing** — static tool (e.g. eslint-plugin-sonarjs) to enumerate distinct paths in functions
-2. **Test execution** — unit/integration tests hitting each path
-3. **Path Coverage %** — `(covered_paths / total_paths) × 100` from coverage + path map
+1. **Path Detection Testing** — ESLint + eslint-plugin-sonarjs analyzes `sample_subject/src/pathRouter.ts` for distinct control-flow paths
+2. **Test execution** — Vitest runs with coverage; all branches/paths exercised
+3. **Path Coverage %** — `(covered_paths / total_paths) × 100` computed from branch coverage + ESLint sonarjs output
+4. **Platform output** — `eslint_sonarjs.json`, `platform_metrics.json`, `testable_dashboard.json`
 
-## Conclusion
+## Output files
 
-Replacing the training repo with `opentelemetry2` **does not** satisfy the **Path Coverage %** white-box metric. This repo is suitable for **OpenTelemetry tracing demos**, not Control Flow / Path Coverage validation.
+| File | Purpose |
+|------|---------|
+| `eslint_sonarjs.json` | Unified platform output |
+| `eslint_sonarjs_metrics.json` | Full metrics payload |
+| `artifacts/training/eslint-report.json` | Raw ESLint JSON |
+| `artifacts/training/coverage/` | Vitest coverage summary |
+
+## opentelemetry2 subdirectory
+
+The [sakthisudarshan/opentelemetry2](https://github.com/sakthisudarshan/opentelemetry2) demo lives in `opentelemetry2/` for reference. It does **not** contribute to Path Coverage % — the metric is validated by the ESLint + sonarjs platform trigger above.

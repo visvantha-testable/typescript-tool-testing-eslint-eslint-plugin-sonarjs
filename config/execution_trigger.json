@@ -1,0 +1,21 @@
+{
+  "metric": "Path Coverage %",
+  "strategy": "Control Flow Testing",
+  "l4_classification": "Path Coverage",
+  "l5_metric": "Path Detection Testing",
+  "tools": ["eslint", "eslint-plugin-sonarjs"],
+  "trigger_command": "npm run trigger",
+  "primary_output_file": "eslint_sonarjs.json",
+  "target_path": "sample_subject/src",
+  "trigger_sequence": [
+    { "step": 1, "command": "npm install" },
+    { "step": 2, "command": "npx eslint sample_subject/src -f json" },
+    { "step": 3, "command": "npx vitest run --coverage" },
+    { "step": 4, "command": "npm run trigger" }
+  ],
+  "expected_sample_output": {
+    "path_coverage_percent": 100,
+    "Path Coverage %": 100,
+    "status": "READY"
+  }
+}

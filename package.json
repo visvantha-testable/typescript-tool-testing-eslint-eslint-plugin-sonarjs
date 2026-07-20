@@ -1,0 +1,30 @@
+{
+  "name": "typescript-tool-testing-eslint-eslint-plugin-sonarjs",
+  "version": "1.0.0",
+  "description": "Testable training repo: Path Coverage % via eslint + eslint-plugin-sonarjs",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "lint": "eslint sample_subject/src --max-warnings 0",
+    "lint:json": "eslint sample_subject/src -f json -o artifacts/training/eslint-report.json",
+    "coverage": "vitest run --coverage",
+    "trigger": "tsx src/eslintSonarjsTrigger.ts",
+    "verify": "tsx src/verify/verifyCli.ts --json eslint_sonarjs.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/node": "^20.14.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-sonarjs": "^3.0.7",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.15.0",
+    "vitest": "^2.1.0"
+  }
+}
