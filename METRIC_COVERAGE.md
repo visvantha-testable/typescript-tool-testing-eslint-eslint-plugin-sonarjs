@@ -61,6 +61,6 @@ TRIGGER COMPLETE: eslint_sonarjs.json — Path Coverage 100/100=true
 | `artifacts/training/eslint-report.json` | Raw ESLint JSON |
 | `artifacts/training/coverage/` | Vitest coverage summary |
 
-## eslint-plugin-eslint-plugin subdirectory
+## typescript-eslint subdirectory
 
-[eslint-community/eslint-plugin-eslint-plugin](https://github.com/eslint-community/eslint-plugin-eslint-plugin) is vendored in `eslint-plugin-eslint-plugin/`. Path Coverage % is validated by the ESLint + sonarjs platform trigger on `sample_subject/` (not the full upstream `lib/` tree).
+[typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) is vendored in `typescript-eslint/`. Path Coverage % is validated by the ESLint + sonarjs platform trigger on `sample_subject/` (not the full upstream monorepo).

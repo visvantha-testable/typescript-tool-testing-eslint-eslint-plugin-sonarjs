@@ -2,12 +2,12 @@
 
 **Control Flow Testing → Path Coverage → Path Detection Testing → Path Coverage %**
 
-This repo vendors [eslint-plugin-eslint-plugin](https://github.com/eslint-community/eslint-plugin-eslint-plugin) and provides a Testable platform trigger that validates **Path Coverage %** at **100/100**.
+This repo vendors [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) and provides a Testable platform trigger that validates **Path Coverage %** at **100/100**.
 
 ## Layout
 
 ```
-├── eslint-plugin-eslint-plugin/   (upstream ESLint plugin — vendored clone)
+├── typescript-eslint/             (upstream monorepo — vendored clone)
 ├── sample_subject/src/            (path-coverage training code analyzed by ESLint+sonarjs)
 ├── sample_subject/tests/          (vitest — 100% branch/path coverage)
 ├── src/                           (trigger, verify, platform fixup)
@@ -32,6 +32,6 @@ npm run verify
 
 See **[METRIC_COVERAGE.md](METRIC_COVERAGE.md)** for full taxonomy validation.
 
-## eslint-plugin-eslint-plugin (vendored)
+## typescript-eslint (vendored)
 
-Full upstream source from [eslint-community/eslint-plugin-eslint-plugin](https://github.com/eslint-community/eslint-plugin-eslint-plugin) lives in `eslint-plugin-eslint-plugin/`. Path Coverage % is validated by the platform trigger on `sample_subject/` (ESLint path detection + vitest branch coverage).
+Full upstream monorepo from [typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) lives in `typescript-eslint/`. Path Coverage % is validated by the platform trigger on `sample_subject/` (ESLint path detection + vitest branch coverage).

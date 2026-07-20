@@ -6,4 +6,8 @@ artifacts/
 .DS_Store
 eslint-plugin-eslint-plugin/node_modules/
 eslint-plugin-eslint-plugin/dist/
-eslint-plugin-eslint-plugin/.husky/_/
+typescript-eslint/node_modules/
+typescript-eslint/.nx/
+typescript-eslint/dist/
+typescript-eslint/tmp/
+typescript-eslint/coverage/
