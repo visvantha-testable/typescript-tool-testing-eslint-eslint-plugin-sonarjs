@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+artifacts/
+*.log
+.DS_Store
+eslint-plugin-eslint-plugin/node_modules/
+eslint-plugin-eslint-plugin/dist/
+eslint-plugin-eslint-plugin/.husky/_/
