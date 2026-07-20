@@ -1,31 +1,25 @@
-# TypeScript Tool Testing — ESLint + eslint-plugin-sonarjs
+# opentelemetry-examples
 
-**Control Flow Testing → Path Coverage → Path Detection Testing → Path Coverage %**
+OpenTelemetry instrumentation examples (Go + Node.js) — sourced from [sakthisudarshan/opentelemetry2](https://github.com/sakthisudarshan/opentelemetry2).
 
-## Required Layout
+## Structure
 
 ```
-├── package.json
-├── package-lock.json
-├── eslint.config.js          (eslint + eslint-plugin-sonarjs)
-├── src/index.ts
-├── sample_subject/src/       (multi-path TypeScript code)
-├── sample_subject/tests/     (100% path coverage)
-└── eslint_sonarjs.json       (platform output)
+├── go/                 Go Gin todo service + Aspecto/Jaeger tracing
+├── node/               Node Express todo service + tracing exporters
+├── docker-compose.yml  Jaeger UI + MongoDB
+└── METRIC_COVERAGE.md  Path Coverage % assessment (NOT COVERED)
 ```
 
-## Trigger
+## Run
 
 ```bash
-npm install
-npm run trigger
-npm run verify
+docker-compose up -d
+cd go && go run main.go
+# or
+cd node && yarn install && yarn start
 ```
 
-## Metric
+## Path Coverage % metric
 
-| Field | Value |
-|-------|-------|
-| Tool | eslint + eslint-plugin-sonarjs |
-| Metric | Path Coverage % |
-| Expected | 100/100 |
+See **[METRIC_COVERAGE.md](METRIC_COVERAGE.md)** — this repository **does not** cover the Testable **Path Coverage %** KPI (Control Flow Testing → Path Coverage → Path Detection Testing).

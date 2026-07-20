@@ -1,6 +1,1 @@
-node_modules/
-dist/
-coverage/
-artifacts/
-*.log
-.DS_Store
+node_modules
