@@ -9,7 +9,7 @@
     "test": "vitest run",
     "lint": "eslint sample_subject/src --max-warnings 0",
     "lint:json": "eslint sample_subject/src -f json -o artifacts/training/eslint-report.json",
-    "coverage": "vitest run --coverage",
+    "coverage": "vitest run --coverage && tsx src/coverage/coverageTaxonomyReport.ts",
     "trigger": "tsx src/eslintSonarjsTrigger.ts",
     "verify": "tsx src/verify/verifyCli.ts --json eslint_sonarjs.json"
   },

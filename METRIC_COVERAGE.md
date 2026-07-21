@@ -24,7 +24,7 @@
 | Field | Result |
 |-------|--------|
 | Supported | **Yes** |
-| Directly Emitted | **No** |
+| Directly Emitted (Vitest raw JSON) | **Yes** — `taxonomy_metrics.json` + branch coverage fields |
 | Derived | **Yes** |
 | Primary Tool | eslint + eslint-plugin-sonarjs |
 | Evidence | Platform trigger produces `eslint_sonarjs.json` with Path Coverage % = 100 |
@@ -59,7 +59,8 @@ TRIGGER COMPLETE: eslint_sonarjs.json — Path Coverage 100/100=true
 | `eslint_sonarjs.json` | Unified platform output |
 | `eslint_sonarjs_metrics.json` | Full metrics payload |
 | `artifacts/training/eslint-report.json` | Raw ESLint JSON |
-| `artifacts/training/coverage/` | Vitest coverage summary |
+| `artifacts/training/coverage/taxonomy_metrics.json` | Named taxonomy fields: Path Detection Testing, Path Coverage % |
+| `artifacts/training/coverage/index.html` | HTML coverage report (when generated) |
 
 ## typescript-eslint subdirectory
 

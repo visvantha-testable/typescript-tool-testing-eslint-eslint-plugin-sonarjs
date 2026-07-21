@@ -18,9 +18,17 @@ This repo vendors [typescript-eslint](https://github.com/typescript-eslint/types
 
 ```bash
 npm install
+npm test
+npm run coverage
 npm run trigger
 npm run verify
 ```
+
+Raw coverage artifacts are written to `artifacts/training/coverage/`:
+
+- `coverage-summary.json`
+- `coverage-final.json`
+- `taxonomy_metrics.json` (named Path Detection Testing / Path Coverage % fields)
 
 ## Metric
 
